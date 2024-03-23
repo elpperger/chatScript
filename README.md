@@ -23,3 +23,6 @@ Para rodar o servidor é só executar:
 npm start
 
 
+Para o deploy foi criada uma conta no render pelo github
+
+https://render.com/
