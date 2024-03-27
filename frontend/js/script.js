@@ -2,6 +2,8 @@
 const login = document.querySelector(".login")
 const loginForm = login.querySelector(".login__form")
 const loginInput = login.querySelector(".login__input")
+const emailInput = login.querySelector(".login__email")
+const roomInput = login.querySelector(".login__room");
 
 // chat elements
 const chat = document.querySelector(".chat")
@@ -15,10 +17,15 @@ const colors = [
     "cornflowerblue",
     "darkkhaki",
     "hotpink",
-    "gold"
+    "gold",
+    "blue",
+    "red",
+    "yellow",
+    "pink",
+    "purple"
 ]
 
-const user = { id: "", name: "", color: "" }
+const user = { id: "", name: "", email: "", color: "", room: "" }
 
 let websocket
 
@@ -31,7 +38,7 @@ const createMessageSelfElement = (content) => {
     return div
 }
 
-const createMessageOtherElement = (content, sender, senderColor) => {
+const createMessageOtherElement = (content, sender, senderEmail, senderColor) => {
     const div = document.createElement("div")
     const span = document.createElement("span")
 
@@ -42,7 +49,7 @@ const createMessageOtherElement = (content, sender, senderColor) => {
 
     div.appendChild(span)
 
-    span.innerHTML = sender
+    span.innerHTML = `${sender} (${senderEmail}):`
     div.innerHTML += content
 
     return div
@@ -61,12 +68,12 @@ const scrollScreen = () => {
 }
 
 const processMessage = ({ data }) => {
-    const { userId, userName, userColor, content } = JSON.parse(data)
+    const { userId, userName, userEmail, userColor, content } = JSON.parse(data)
 
     const message =
         userId == user.id
             ? createMessageSelfElement(content)
-            : createMessageOtherElement(content, userName, userColor)
+            : createMessageOtherElement(content, userName, userEmail, userColor || "");
 
     chatMessages.appendChild(message)
 
@@ -78,12 +85,15 @@ const handleLogin = (event) => {
 
     user.id = crypto.randomUUID()
     user.name = loginInput.value
+    user.email = emailInput.value
     user.color = getRandomColor()
+    user.room = roomInput.value
 
     login.style.display = "none"
     chat.style.display = "flex"
 
-    websocket = new WebSocket("wss://chatscript.onrender.com")
+    // websocket = new WebSocket("wss://chatscript.onrender.com")
+    websocket = new WebSocket("ws://localhost:8080")
     websocket.onmessage = processMessage
 }
 
@@ -93,6 +103,7 @@ const sendMessage = (event) => {
     const message = {
         userId: user.id,
         userName: user.name,
+        userEmail: user.email,
         userColor: user.color,
         content: chatInput.value
     }

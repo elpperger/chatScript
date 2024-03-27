@@ -12,8 +12,55 @@
 }
 
 body {
-    background: url("../images/background.png");
     color: #f2f2f2;
+}
+
+.light-mode {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+#toggleBtn {
+    border: #919090 1px solid;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Estilos para o header fixo */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #272424;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__title {
+    margin: 0;
+    color: #9a8d76;
+}
+
+.header__buttons button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .container {
@@ -30,6 +77,10 @@ body {
     background-color: #212121;
     border-radius: 5px;
     padding: 20px;
+}
+
+.login__title {
+    color: #9a8d76
 }
 
 .login>h2 {
@@ -57,6 +108,36 @@ body {
 }
 
 .login__input:focus {
+    outline: 2px solid #f2f2f2;
+}
+
+.login__email {
+    border: none;
+    padding: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: #121212;
+    color: #f2f2f2;
+    outline: none;
+    border-radius: 5px;
+}
+
+.login__email:focus {
+    outline: 2px solid #f2f2f2;
+}
+
+.login__room {
+    border: none;
+    padding: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: #121212;
+    color: #f2f2f2;
+    outline: none;
+    border-radius: 5px;
+}
+
+.login__room:focus {
     outline: 2px solid #f2f2f2;
 }
 
@@ -136,14 +217,14 @@ body {
 }
 
 .message--self {
-    background-color: #f2f2f2;
+    background-color: #b9b9b9;
     color: #121212;
     border-radius: 10px 10px 0 10px;
     align-self: flex-end;
 }
 
 .message--other {
-    background-color: #333;
+    background-color: #161616;
     color: #f2f2f2;
     border-radius: 0 10px 10px 10px;
     align-self: flex-start;
