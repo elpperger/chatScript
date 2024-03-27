@@ -40,6 +40,10 @@
             </section>
 
             <form class="chat__form">
+                <input type="file" id="fileInput" style="display: none;" /> <!-- Input oculto para upload de arquivo -->
+                <button type="button" id="uploadButton" class="chat__button" onclick="document.getElementById('fileInput').click();">
+                    <span class="material-icons">attach_file</span> <!-- Ícone de upload de arquivo -->
+                </button>
                 <input type="text" class="chat__input" placeholder="Digite uma mensagem" required />
                 <button type="submit" class="chat__button">
                     <span class="material-symbols-outlined">send</span>
