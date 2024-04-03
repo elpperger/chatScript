@@ -26,14 +26,15 @@ body {
 }
 
 #toggleBtn {
-    border: #919090 1px solid;
+    border: #ee9e15 2px solid;
     border-radius: 10px;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    background-color: #5e5e5e;
 }
 
 /* Estilos para o header fixo */
@@ -49,18 +50,24 @@ body {
     align-items: center;
 }
 
-.header__title {
-    margin: 0;
-    color: #9a8d76;
+.header__logo {
+    width: 20%;
+    max-width: 100px;
+    height: auto;
+    margin-right: 10px;
 }
 
-.header__buttons button {
-    background-color: #555;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
+
+.header__title {
+    margin: 0;
+    color: #ee9e15;
+    font-size: 1.5rem;
+    align-self: center;
+}
+
+.header__title-container {
+    display: flex;
+    align-items: center;
 }
 
 .container {
@@ -80,7 +87,7 @@ body {
 }
 
 .login__title {
-    color: #9a8d76
+    color: #ee9e15
 }
 
 .login>h2 {
@@ -143,13 +150,14 @@ body {
 
 .login__button {
     border: none;
-    padding: 15px;
+    padding: 8px;
     border-radius: 5px;
-    font-size: 0.85rem;
+    font-size: 1.20rem;
     font-weight: 700;
     background-color: #ddd;
     cursor: pointer;
     color: #121212;
+    border: #ee9e15 2px solid;
 }
 
 .login__button:hover {
